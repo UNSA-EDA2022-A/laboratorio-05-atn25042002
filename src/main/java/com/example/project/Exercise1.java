@@ -16,9 +16,9 @@ public class Exercise1 {
     public boolean esBalanceado(String s) {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
-        String letra= "", abertura= "{([", cierre ="})]", equiv;
+        Character letra= "", abertura= "{([", cierre ="})]", equiv;
         for(int i= 0; i< s.length(); i++){ // Recorre letra por letra
-            letra= s.charAt(i); // Extra la letra
+            letra= s.charAt(i); // Extrae la letra
             if(abertura.indexOf(letra)>= 0){ // Verifica si es un simbolo de abertura
                 stack.push(letra); // Lo agrega a la pila
             }
