@@ -18,12 +18,12 @@ public class Exercise1 {
         // Colocar codigo aqui
         String letra= "", abertura= "{([", cierre ="})]", equiv;
         for(int i= 0; i< s.length(); i++){ // Recorre letra por letra
-            letra= s.charAt(i); // Extrae la letra
+            letra= String.valueOf(s.charAt(i)); // Extrae la letra
             if(abertura.indexOf(letra)>= 0){ // Verifica si es un simbolo de abertura
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
             else if(cierre.indexOf(letra)>= 0){ // verifica si es simbolo de cierre
-                equiv= abertura.charAt(cierre.indexOf(letra)); // Obtiene el simbolo de abertura equivalente
+                equiv= String.valueOf(abertura.charAt(cierre.indexOf(letra))); // Obtiene el simbolo de abertura equivalente
                 if(equiv.equals(stack.top())){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
                     stack.pop(); //Si coincide lo retira
                 }
