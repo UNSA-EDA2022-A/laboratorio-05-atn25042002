@@ -24,7 +24,7 @@ public class Exercise1 {
             }
             else if(cierre.indexOf(letra)>= 0){ // verifica si es simbolo de cierre
                 equiv= String.valueOf(abertura.charAt(cierre.indexOf(letra))); // Obtiene el simbolo de abertura equivalente
-                if(equiv.equals(stack.top())){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
+                if(equiv.equals(String.valueOf(stack.top()))){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
                     stack.pop(); //Si coincide lo retira
                 }
                 else{
