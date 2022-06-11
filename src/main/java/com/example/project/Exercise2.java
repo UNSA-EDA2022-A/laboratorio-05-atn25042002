@@ -20,7 +20,7 @@ public class Exercise2 {
         for(int i= 0; i< str.length(); i++){ // Recorre letra por letra
             letra= String.valueOf(str.charAt(i)); // Extrae la letra
             if(letra.equals("(")){ // Verifica si es un simbolo de abertura
-                cont++
+                cont++;
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
             else if(letra.equals(")")){ // verifica si es simbolo de cierre
