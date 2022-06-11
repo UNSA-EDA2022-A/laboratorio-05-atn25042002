@@ -16,23 +16,23 @@ public class Exercise2 {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
         String letra= "";
-        Boolean aux = false;
+        int aux = 0;
         for(int i= 0; i< str.length(); i++){ // Recorre letra por letra
             letra= String.valueOf(str.charAt(i)); // Extrae la letra
             if(letra.equals("(")){ // Verifica si es un simbolo de abertura
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
-            else if(letra.equals(")") && aux){ // verifica si es simbolo de cierre
+            else if(letra.equals(")") && aux> 0){ // verifica si es simbolo de cierre
                 if(")".equals(String.valueOf(stack.top()))){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
                     stack.pop(); //Si coincide lo retira
-                    aux= false;
+                    aux--;
                 }
                 else{
                     return true; //Si no coincide es porque es porque no esta balanceado
                 }
             }
             else {
-                aux= true;   
+                aux++;   
             }
         }
         return !stack.isEmpty(); // Verifica que este vacia la lista despues del recorrido
