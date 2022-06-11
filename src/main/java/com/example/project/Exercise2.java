@@ -16,8 +16,8 @@ public class Exercise2 {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
         String letra= "", abertura= "{([", cierre ="})]", equiv;
-        for(int i= 0; i< s.length(); i++){ // Recorre letra por letra
-            letra= String.valueOf(s.charAt(i)); // Extrae la letra
+        for(int i= 0; i< str.length(); i++){ // Recorre letra por letra
+            letra= String.valueOf(str.charAt(i)); // Extrae la letra
             if(abertura.indexOf(letra)>= 0){ // Verifica si es un simbolo de abertura
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
