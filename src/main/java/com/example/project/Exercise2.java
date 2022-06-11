@@ -15,20 +15,24 @@ public class Exercise2 {
     public boolean existenDuplicados(String str) {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
-        String letra= "", abertura= "{([", cierre ="})]", equiv;
+        String letra= "";
+        Boolean aux = false;
         for(int i= 0; i< str.length(); i++){ // Recorre letra por letra
             letra= String.valueOf(str.charAt(i)); // Extrae la letra
-            if(abertura.indexOf(letra)>= 0){ // Verifica si es un simbolo de abertura
+            if(letra.equals("(")){ // Verifica si es un simbolo de abertura
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
-            else if(cierre.indexOf(letra)>= 0){ // verifica si es simbolo de cierre
-                equiv= String.valueOf(abertura.charAt(cierre.indexOf(letra))); // Obtiene el simbolo de abertura equivalente
-                if(equiv.equals(String.valueOf(stack.top()))){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
+            else if(letra.equals(")") && aux){ // verifica si es simbolo de cierre
+                if(")".equals(String.valueOf(stack.top()))){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
                     stack.pop(); //Si coincide lo retira
+                    aux= false;
                 }
                 else{
                     return true; //Si no coincide es porque es porque no esta balanceado
                 }
+            }
+            else {
+                aux= true;   
             }
         }
         return !stack.isEmpty(); // Verifica que este vacia la lista despues del recorrido
