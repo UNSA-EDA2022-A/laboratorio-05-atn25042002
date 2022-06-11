@@ -16,30 +16,30 @@ public class Exercise2 {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
         String letra= "";
-        int cont= 0;
+        int cont= 0; //Indica el número de abiertos
         for(int i= 0; i< str.length(); i++){ // Recorre letra por letra
             letra= String.valueOf(str.charAt(i)); // Extrae la letra
             if(letra.equals("(")){ // Verifica si es un simbolo de abertura
-                cont++;
+                cont++; //Aumenta el número de abiertos
                 stack.push(letra.charAt(0)); // Lo agrega a la pila
             }
             else if(letra.equals(")")){ // verifica si es simbolo de cierre
-                if("x".equals(String.valueOf(stack.top())) && cont > 0){ // Verifique que el ultimo simbolo de abertura corresponda con el ultimo de cierre ingresado
-                    stack.pop(); //Si coincide lo retira
-                    stack.pop();
-                    cont--;
+                if("x".equals(String.valueOf(stack.top())) && cont > 0){ // Verifica que no este vacio y si hay algun abierto
+                    stack.pop(); // Retira lo de adentro
+                    stack.pop(); // Retira el de abertura
+                    cont--; // Disminuye el numero de abiertos
                 }
                 else{
-                    return true; //Si no coincide es porque es porque no esta balanceado
+                    return true; //Hay un parentesis vacio
                 }
             }
             else {
-                if(!"x".equals(String.valueOf(stack.top()))){
+                if(!"x".equals(String.valueOf(stack.top()))){ //Cualquier caracter es convertido a x (sin repeticiones)
                     stack.push("x".charAt(0));  
                 }
             }
         }
-        if(String.valueOf(stack.top()).equals("x")){
+        if(String.valueOf(stack.top()).equals("x")){ //Remueve las x (numeros u operaciones) restantes
             stack.pop();   
         }
         return !stack.isEmpty(); // Verifica que este vacia la lista despues del recorrido
